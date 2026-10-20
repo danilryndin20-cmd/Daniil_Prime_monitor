@@ -1,7 +1,7 @@
 """Факторное разложение (семинар 6): цепные подстановки и каскадная диаграмма.
 
 Договорённость курса: сначала «сколько» (количество), потом «почём» (цена).
-Сумма влияний всегда равна изменению показателя — это проверяет assert.
+Сумма влияний всегда равна изменению показателя - это проверяет assert.
 """
 
 import math
@@ -39,7 +39,7 @@ def waterfall(deltas: pd.Series, title: str, unit: str = "тыс. руб.") -> p
     bars = ax.bar(deltas.index, deltas, bottom=before, color=colors, zorder=2)
     total = ax.bar("итого", deltas.sum(), color="#6B7280", zorder=2)
     for group in (bars, total):
-        ax.bar_label(group, fmt=lambda v: f"{v:+,.0f}".replace(",", " ").replace("-", "−"), padding=3)
+        ax.bar_label(group, fmt=lambda v: f"{v:+,.0f}".replace(",", " "), padding=3)
     ax.axhline(0, color="#111827", linewidth=0.8)
     ax.set_title(title, loc="left")
     ax.set_ylabel(unit)
